@@ -1,0 +1,19 @@
+<h2>COMMENTS</h2>
+
+<%= form_tag comments_path do %>
+  <p>
+    <%= label_tag 'comment[author_id]', 'comment author' %>
+    <%= select_tag "comment[author_id]", options_from_collection_for_select(Author.all, "id", "name") %>
+    <%= link_to 'New Author', new_author_path %>
+  </p>
+  <p>
+    <%= label_tag 'comment[body]', 'comment body' %>
+    <%= text_area_tag 'comment[body]' %>
+  </p>
+  <p style="display:none">
+    <%= text_field_tag 'comment[post_id]', @post.id %>
+  </p>
+  <p>
+    <%= submit_tag "Submit Comment" %>
+  </p>
+<% end %>

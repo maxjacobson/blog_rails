@@ -1,5 +1,5 @@
 class Author < ActiveRecord::Base
   attr_accessible :name
-  belongs_to :post
-  belongs_to :comment
+  has_many :posts
+  has_many :comments
 end

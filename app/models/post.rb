@@ -1,5 +1,10 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :title
+  attr_accessible :body, :title, :author_id
   has_many :comments
-  has_one :author
+  belongs_to :author
+
+  def body_paragraphized
+    self.body.split("\n").collect{|paragraph| "<p>#{paragraph}</p>"}.join("\n")
+  end
+
 end

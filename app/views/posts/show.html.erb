@@ -4,11 +4,31 @@
   <b>Title:</b>
   <%= @post.title %>
 </p>
+<p>
+  <b>Author:</b>
+  <%= @post.author.name %>
+</p>
 
 <p>
   <b>Body:</b>
-  <%= @post.body %>
+  <%= raw @post.body_paragraphized %>
 </p>
+
+<hr>
+
+<%= render 'comment_form_for_post_footer' %>
+
+<% @post.comments.each do |comment| %>
+
+  <p>
+    <em><%= comment.author.name %></em>
+  </p>
+  <p>
+    <%= raw comment.body_paragraphized %>
+  </p>
+  <hr>
+
+<% end %>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

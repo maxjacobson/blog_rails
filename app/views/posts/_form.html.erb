@@ -16,6 +16,12 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :author_id %>
+
+    <%= select_tag "post[author_id]", options_from_collection_for_select(Author.all, "id", "name") %>
+    <p><%= link_to 'New Author', new_author_path %></p>
+  </div>
+  <div class="field">
     <%= f.label :body %><br />
     <%= f.text_area :body %>
   </div>
