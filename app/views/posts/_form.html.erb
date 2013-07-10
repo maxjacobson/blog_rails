@@ -17,8 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :author_id %>
+    <%= select_tag "post[author_id]", options_from_collection_for_select(Author.all, "id", "name"), :id => 'author_dropdown' %>
+    or
+    <%= label_tag 'post[author_to_add]', 'create new author' %>
+    <%= text_field_tag 'post[author_to_add]', nil, :id => 'author_text_field' %>
 
-    <%= select_tag "post[author_id]", options_from_collection_for_select(Author.all, "id", "name") %>
     <p><%= link_to 'New Author', new_author_path %></p>
   </div>
   <div class="field">

@@ -8,7 +8,12 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+  <h1><%= link_to "My great blog", :root %></h1>
+  <%= link_to 'New Post', new_post_path %>
+  <%= yield %>
+</div>
+
 
 </body>
 </html>

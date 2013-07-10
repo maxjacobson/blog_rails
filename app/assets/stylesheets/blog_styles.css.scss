@@ -1,0 +1,22 @@
+$bgcolor: #E3FFBD;
+$containercolor: #F5E8FF;
+
+html body {
+  background-color: $bgcolor;
+}
+
+.container {
+  width: 500px;
+  margin: 15px auto;
+  background-color: $containercolor;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.post {
+  border-bottom: dotted black 1px;
+}
+
+textarea {
+  width: 100%;
+}

@@ -1,20 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<h2><%= @post.title %></h2>
 <p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-<p>
-  <b>Author:</b>
-  <%= @post.author.name %>
+  <b>By:</b> <%= @post.author.name %>
 </p>
 
-<p>
-  <b>Body:</b>
+
+<div class="post">
   <%= raw @post.body_paragraphized %>
-</p>
-
-<hr>
+</div>
 
 <%= render 'comment_form_for_post_footer' %>
 

@@ -1,10 +1,12 @@
 <h2>COMMENTS</h2>
 
-<%= form_tag comments_path do %>
+<%= form_tag comments_path, :id => 'new_comment_form' do %>
   <p>
     <%= label_tag 'comment[author_id]', 'comment author' %>
-    <%= select_tag "comment[author_id]", options_from_collection_for_select(Author.all, "id", "name") %>
-    <%= link_to 'New Author', new_author_path %>
+    <%= select_tag "comment[author_id]", options_from_collection_for_select(Author.all, "id", "name"), :id => 'author_dropdown' %>
+    or
+    <%= label_tag 'comment[author_to_add]', 'create new author' %>
+    <%= text_field_tag 'comment[author_to_add]', nil, :id => 'author_text_field' %>
   </p>
   <p>
     <%= label_tag 'comment[body]', 'comment body' %>
