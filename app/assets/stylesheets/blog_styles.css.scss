@@ -1,5 +1,6 @@
 $bgcolor: #E3FFBD;
 $containercolor: #F5E8FF;
+$darkercontainer: rgba(198,187,207,0.5);
 
 html body {
   background-color: $bgcolor;
@@ -15,6 +16,9 @@ html body {
 
 .post, .comment {
   border-bottom: dotted black 1px;
+  &:nth-child(odd) {
+    background-color: $darkercontainer;
+  }
 }
 
 textarea {
