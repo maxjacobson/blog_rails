@@ -15,7 +15,7 @@ html body {
 }
 
 .post, .comment {
-  border-bottom: dotted black 1px;
+  padding: 5px;
   &:nth-child(odd) {
     background-color: $darkercontainer;
   }
