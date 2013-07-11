@@ -10,19 +10,17 @@
   <%= raw @post.body_paragraphized %>
 </div>
 
-<%= render 'comment_form_for_post_footer' %>
+<h2>COMMENTS</h2>
 
 <% @post.comments.each do |comment| %>
-
-  <p>
-    <em><%= comment.author.name %></em>
-  </p>
-  <p>
+  <div class="comment">
+    <p><em><%= comment.author.name %></em></p>
     <%= raw comment.body_paragraphized %>
-  </p>
-  <hr>
-
+    <p><%= link_to 'Edit', edit_comment_path(comment) %> | <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </div>
 <% end %>
+
+<%= render 'comment_form_for_post_footer' %>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
