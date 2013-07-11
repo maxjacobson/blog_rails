@@ -7,7 +7,7 @@
 
 
 <div class="post">
-  <%= raw @post.body_paragraphized %>
+  <%= raw to_markdown(@post.body) %>
 </div>
 
 <h2>COMMENTS</h2>
@@ -15,7 +15,7 @@
 <% @post.comments.each do |comment| %>
   <div class="comment">
     <p><em><%= comment.author.name %></em></p>
-    <%= raw comment.body_paragraphized %>
+    <%= raw to_markdown(comment.body) %>
     <p><%= link_to 'Edit', edit_comment_path(comment) %> | <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   </div>
 <% end %>
@@ -24,4 +24,5 @@
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Home', :root %>

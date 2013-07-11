@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @title = "Home"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @title = @post.title
 
     respond_to do |format|
       format.html # show.html.erb
@@ -77,7 +79,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to :root }
       format.json { head :no_content }
     end
   end
